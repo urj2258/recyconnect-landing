@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Download, ArrowRight, Sparkles } from 'lucide-react';
+import { Download, ArrowRight, ShieldCheck, Zap, Globe } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -7,101 +7,86 @@ const Hero = () => {
       padding: '160px 0 100px', 
       position: 'relative', 
       overflow: 'hidden',
-      background: 'radial-gradient(circle at 50% -20%, #ecfdf5 0%, transparent 50%)'
+      background: 'radial-gradient(circle at 50% -20%, #f0fdf4 0%, transparent 50%)'
     }}>
-      {/* Soft Animated Background Glows */}
-      <motion.div 
-        animate={{ 
-          x: [0, 50, 0],
-          y: [0, 30, 0],
-        }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="glow-shape"
-        style={{ top: '-10%', left: '-5%', opacity: 0.4 }}
-      />
-      <motion.div 
-        animate={{ 
-          x: [0, -40, 0],
-          y: [0, -50, 0],
-        }}
-        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-        className="glow-shape"
-        style={{ bottom: '10%', right: '-10%', opacity: 0.3, backgroundColor: '#dcfce7' }}
-      />
+      {/* Soft Glow Effects */}
+      <div className="glow-shape" style={{ top: '-10%', left: '-5%', opacity: 0.5 }} />
+      <div className="glow-shape" style={{ bottom: '10%', right: '-10%', opacity: 0.3, background: 'radial-gradient(circle, #dcfce7 0%, transparent 70%)' }} />
 
       <div className="container">
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', 
-          gap: '80px', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+          gap: '60px', 
           alignItems: 'center' 
         }}>
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <div className="badge">
-              <Sparkles size={14} style={{ marginRight: '8px', verticalAlign: 'middle' }} />
-              AI-Powered Sustainability
+              <ShieldCheck size={14} style={{ marginRight: '8px' }} />
+              Built for Sustainable Future
             </div>
             
             <h1 style={{ 
-              fontSize: 'clamp(3.5rem, 6vw, 5rem)', 
+              fontSize: 'clamp(3rem, 5vw, 4.5rem)', 
               lineHeight: '1.1', 
               marginBottom: '24px',
               color: 'var(--secondary)'
             }}>
-              Turn Your Waste <br />
-              into <span className="gradient-text">Wealth.</span>
+              Smarter Recycling for <br />
+              a <span className="gradient-text">Greener Planet.</span>
             </h1>
             
             <p style={{ 
-              fontSize: '1.25rem', 
+              fontSize: '1.2rem', 
               color: 'var(--text-muted)', 
-              marginBottom: '48px', 
+              marginBottom: '40px', 
               maxWidth: '540px',
-              lineHeight: '1.7'
+              lineHeight: '1.6'
             }}>
-              RecyConnect uses advanced AI to identify recyclables and rewards you for every item saved. Join the circular economy movement that pays you to save the planet.
+              RecyConnect uses advanced AI technology to simplify waste management and promote sustainable living. Join the movement toward a circular economy today.
             </p>
             
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
               <motion.a 
                 href="/recyconnect.apk"
                 download="recyconnect.apk"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="btn btn-green" 
-                style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
               >
                 <Download size={20} />
                 Download APK
               </motion.a>
               
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
+              <motion.a 
+                href="#features"
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="btn btn-secondary"
               >
                 Learn More
                 <ArrowRight size={20} />
-              </motion.button>
+              </motion.a>
             </div>
 
-            {/* Quick Stats/Trust */}
-            <div style={{ marginTop: '60px', display: 'flex', gap: '40px', opacity: 0.6 }}>
-              <div>
-                <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--secondary)' }}>50k+</div>
-                <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Active Users</div>
+            {/* Trust-based highlights instead of fake stats */}
+            <div style={{ 
+              marginTop: '48px', 
+              display: 'flex', 
+              gap: '32px', 
+              flexWrap: 'wrap'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-muted)', fontSize: '0.95rem', fontWeight: 500 }}>
+                <Zap size={18} color="var(--primary)" />
+                <span>AI Powered System</span>
               </div>
-              <div>
-                <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--secondary)' }}>12k</div>
-                <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Tons Recycled</div>
-              </div>
-              <div>
-                <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--secondary)' }}>$2M</div>
-                <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Rewards Paid</div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-muted)', fontSize: '0.95rem', fontWeight: 500 }}>
+                <Globe size={18} color="var(--primary)" />
+                <span>Eco-Friendly Solution</span>
               </div>
             </div>
           </motion.div>
@@ -112,10 +97,9 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.2 }}
             style={{ position: 'relative' }}
           >
-            {/* Main Illustration Wrapper */}
             <div style={{ 
               borderRadius: '40px', 
-              padding: '24px',
+              padding: '20px',
               backgroundColor: 'white',
               boxShadow: 'var(--shadow-premium)',
               border: '1px solid var(--border)',
@@ -128,45 +112,47 @@ const Hero = () => {
                 style={{ width: '100%', height: 'auto', borderRadius: '24px', display: 'block' }}
               />
               
-              {/* Glass Floating Badges */}
+              {/* Clean Trust Badges instead of dynamic data */}
               <motion.div 
-                animate={{ y: [0, -10, 0] }}
+                animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 className="glass"
                 style={{ 
                   position: 'absolute',
                   top: '10%',
                   right: '-5%',
-                  padding: '16px 24px',
-                  borderRadius: '16px',
+                  padding: '12px 20px',
+                  borderRadius: '14px',
                   boxShadow: 'var(--shadow-soft)',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '12px'
+                  gap: '10px',
+                  border: '1px solid rgba(16, 185, 129, 0.2)'
                 }}
               >
                 <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#10b981' }}></div>
-                <span style={{ fontWeight: 700, fontSize: '14px', color: 'var(--secondary)' }}>AI Scanning Active</span>
+                <span style={{ fontWeight: 600, fontSize: '13px', color: 'var(--secondary)' }}>Smart Waste Detection</span>
               </motion.div>
 
               <motion.div 
-                animate={{ y: [0, 10, 0] }}
+                animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                 className="glass"
                 style={{ 
                   position: 'absolute',
                   bottom: '15%',
-                  left: '-10%',
-                  padding: '20px',
-                  borderRadius: '20px',
+                  left: '-8%',
+                  padding: '16px',
+                  borderRadius: '16px',
                   boxShadow: 'var(--shadow-soft)',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '4px'
+                  gap: '4px',
+                  border: '1px solid rgba(16, 185, 129, 0.1)'
                 }}
               >
-                <span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--text-muted)' }}>Estimated Value</span>
-                <span style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--primary-dark)' }}>$24.50</span>
+                <span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--text-muted)' }}>Status</span>
+                <span style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--primary-dark)' }}>Verified Eco-Impact</span>
               </motion.div>
             </div>
           </motion.div>

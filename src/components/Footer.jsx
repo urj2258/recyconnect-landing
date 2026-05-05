@@ -58,9 +58,14 @@ const Footer = () => {
           <div style={{ gridColumn: 'span 1' }}>
             <h4 style={{ marginBottom: '1.75rem', fontSize: '1.2rem', fontWeight: 700 }}>Get the App</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <button className="btn btn-primary" style={{ padding: '0.75rem 1.5rem', width: '100%', fontSize: '0.9rem' }}>
+              <a 
+                href="/recyconnect.apk"
+                download="recyconnect.apk"
+                className="btn btn-primary" 
+                style={{ padding: '0.75rem 1.5rem', width: '100%', fontSize: '0.9rem' }}
+              >
                 Download APK
-              </button>
+              </a>
               <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', color: 'var(--text-muted)', fontSize: '0.8rem', justifyContent: 'center' }}>
                 <ShieldCheck size={14} color="var(--primary)" />
                 Secure & Verified

@@ -12,8 +12,8 @@ const CTASection = () => {
           viewport={{ once: true }}
           style={{
             background: 'linear-gradient(135deg, #020617 0%, #0f172a 100%)',
-            borderRadius: '3rem',
-            padding: '6rem 2rem',
+            borderRadius: 'clamp(24px, 5vw, 3rem)',
+            padding: 'clamp(3rem, 8vw, 6rem) clamp(1.5rem, 5vw, 2rem)',
             textAlign: 'center',
             color: 'white',
             position: 'relative',
@@ -36,18 +36,21 @@ const CTASection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               style={{ 
-                fontSize: 'clamp(2.5rem, 5vw, 4rem)', 
                 marginBottom: '1.5rem', 
-                fontWeight: 800, 
-                letterSpacing: '-0.04em',
                 color: '#ffffff'
               }}
             >
-              Start Your Sustainable <br />
+              Start Your Sustainable <br className="hidden-mobile" />
               Journey <span className="gradient-text">Today.</span>
             </motion.h2>
             
-            <p style={{ fontSize: '1.25rem', marginBottom: '3rem', opacity: 0.8, maxWidth: '600px', margin: '0 auto 3rem', lineHeight: '1.6', color: 'rgba(255, 255, 255, 0.9)' }}>
+            <p style={{ 
+              marginBottom: '3rem', 
+              opacity: 0.8, 
+              maxWidth: '600px', 
+              marginInline: 'auto', 
+              color: 'rgba(255, 255, 255, 0.9)' 
+            }}>
               Download the RecyConnect app and join a community dedicated to building a cleaner, smarter future through responsible waste management.
             </p>
 
@@ -58,12 +61,11 @@ const CTASection = () => {
               whileTap={{ scale: 0.95 }}
               className="btn btn-green" 
               style={{ 
-                padding: '1.25rem 3.5rem', 
-                fontSize: '1.1rem',
-                marginBottom: '4rem'
+                padding: '1.125rem 3rem',
+                marginBottom: 'clamp(3rem, 8vw, 4rem)'
               }}
             >
-              <Download size={24} />
+              <Download size={22} />
               Download APK Now
             </motion.a>
 
@@ -71,23 +73,23 @@ const CTASection = () => {
             <div style={{ 
               display: 'flex', 
               justifyContent: 'center', 
-              gap: '3rem', 
+              gap: 'clamp(1.5rem, 5vw, 3rem)', 
               flexWrap: 'wrap',
               borderTop: '1px solid rgba(255, 255, 255, 0.1)',
               paddingTop: '3rem',
               maxWidth: '800px',
               margin: '0 auto'
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.9rem', fontWeight: 600 }}>
-                <ShieldCheck size={20} color="#10b981" />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.85rem', fontWeight: 600 }}>
+                <ShieldCheck size={18} color="#10b981" />
                 <span>Verified Impact</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.9rem', fontWeight: 600 }}>
-                <Lock size={20} color="#10b981" />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.85rem', fontWeight: 600 }}>
+                <Lock size={18} color="#10b981" />
                 <span>Encrypted Data</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.9rem', fontWeight: 600 }}>
-                <CheckCircle2 size={20} color="#10b981" />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.85rem', fontWeight: 600 }}>
+                <CheckCircle2 size={18} color="#10b981" />
                 <span>GDPR Compliant</span>
               </div>
             </div>

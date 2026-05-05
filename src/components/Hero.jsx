@@ -4,7 +4,7 @@ import { Download, ArrowRight, ShieldCheck, Zap, Globe } from 'lucide-react';
 const Hero = () => {
   return (
     <section style={{ 
-      padding: '160px 0 100px', 
+      padding: 'clamp(120px, 15vw, 180px) 0 clamp(60px, 10vw, 100px)', 
       position: 'relative', 
       overflow: 'hidden',
       background: 'radial-gradient(circle at 50% -20%, #f0fdf4 0%, transparent 50%)'
@@ -16,41 +16,64 @@ const Hero = () => {
       <div className="container">
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
-          gap: '60px', 
+          gridTemplateColumns: '1fr',
+          gap: '40px', 
           alignItems: 'center' 
-        }}>
+        }} className="hero-grid">
+          <style>{`
+            @media (min-width: 768px) {
+              .hero-grid { grid-template-columns: 1.1fr 0.9fr !important; gap: 40px !important; }
+              .hero-content { text-align: left !important; }
+              .hero-p { margin-left: 0 !important; }
+              .hero-btns { justify-content: flex-start !important; }
+              .hero-trust { justify-content: flex-start !important; }
+            }
+            @media (min-width: 1024px) {
+              .hero-grid { gap: 80px !important; }
+            }
+          `}</style>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
+            style={{ textAlign: 'center' }}
+            className="hero-content"
           >
+
             <div className="badge">
               <ShieldCheck size={14} style={{ marginRight: '8px' }} />
               Built for Sustainable Future
             </div>
             
-            <h1 style={{ 
-              fontSize: 'clamp(3rem, 5vw, 4.5rem)', 
-              lineHeight: '1.1', 
-              marginBottom: '24px',
-              color: 'var(--secondary)'
-            }}>
-              Smarter Recycling for <br />
-              a <span className="gradient-text">Greener Planet.</span>
+            <h1 style={{ marginBottom: '24px' }}>
+              Smarter Recycling <br className="hidden-mobile" />
+              for a <span className="gradient-text">Greener Planet.</span>
             </h1>
+            <style>{`
+              @media (max-width: 640px) { .hidden-mobile { display: none; } }
+            `}</style>
             
             <p style={{ 
-              fontSize: '1.2rem', 
-              color: 'var(--text-muted)', 
               marginBottom: '40px', 
-              maxWidth: '540px',
-              lineHeight: '1.6'
-            }}>
+              marginInline: 'auto',
+              maxWidth: '540px'
+            }} className="hero-p">
+              <style>{`
+                @media (min-width: 1024px) { .hero-p { margin-left: 0 !important; } }
+              `}</style>
               RecyConnect uses advanced AI technology to simplify waste management and promote sustainable living. Join the movement toward a circular economy today.
             </p>
             
-            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+            <div style={{ 
+              display: 'flex', 
+              gap: '12px', 
+              flexWrap: 'wrap',
+              justifyContent: 'center'
+            }} className="hero-btns">
+              <style>{`
+                @media (min-width: 1024px) { .hero-btns { justify-content: flex-start !important; } }
+              `}</style>
               <motion.a 
                 href="/recyconnect.apk"
                 download="recyconnect.apk"
@@ -73,33 +96,37 @@ const Hero = () => {
               </motion.a>
             </div>
 
-            {/* Trust-based highlights instead of fake stats */}
+            {/* Trust highlights */}
             <div style={{ 
               marginTop: '48px', 
               display: 'flex', 
-              gap: '32px', 
-              flexWrap: 'wrap'
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-muted)', fontSize: '0.95rem', fontWeight: 500 }}>
-                <Zap size={18} color="var(--primary)" />
+              gap: '24px', 
+              flexWrap: 'wrap',
+              justifyContent: 'center'
+            }} className="hero-trust">
+              <style>{`
+                @media (min-width: 1024px) { .hero-trust { justify-content: flex-start !important; } }
+              `}</style>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-muted)', fontSize: '0.9rem', fontWeight: 500 }}>
+                <Zap size={16} color="var(--primary)" />
                 <span>AI Powered System</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-muted)', fontSize: '0.95rem', fontWeight: 500 }}>
-                <Globe size={18} color="var(--primary)" />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-muted)', fontSize: '0.9rem', fontWeight: 500 }}>
+                <Globe size={16} color="var(--primary)" />
                 <span>Eco-Friendly Solution</span>
               </div>
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
             style={{ position: 'relative' }}
           >
             <div style={{ 
-              borderRadius: '40px', 
-              padding: '20px',
+              borderRadius: 'clamp(20px, 5vw, 40px)', 
+              padding: 'clamp(12px, 3vw, 20px)',
               backgroundColor: 'white',
               boxShadow: 'var(--shadow-premium)',
               border: '1px solid var(--border)',
@@ -109,50 +136,29 @@ const Hero = () => {
               <img 
                 src="/recyconnect_hero_illustration.png" 
                 alt="RecyConnect AI" 
-                style={{ width: '100%', height: 'auto', borderRadius: '24px', display: 'block' }}
+                style={{ width: '100%', height: 'auto', borderRadius: 'clamp(12px, 3vw, 24px)', display: 'block' }}
               />
               
-              {/* Clean Trust Badges instead of dynamic data */}
+              {/* Floating Badge (Hidden on very small screens or resized) */}
               <motion.div 
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="glass"
+                className="glass hidden-mobile"
                 style={{ 
                   position: 'absolute',
                   top: '10%',
                   right: '-5%',
-                  padding: '12px 20px',
-                  borderRadius: '14px',
+                  padding: '10px 16px',
+                  borderRadius: '12px',
                   boxShadow: 'var(--shadow-soft)',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '10px',
+                  gap: '8px',
                   border: '1px solid rgba(16, 185, 129, 0.2)'
                 }}
               >
-                <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#10b981' }}></div>
-                <span style={{ fontWeight: 600, fontSize: '13px', color: 'var(--secondary)' }}>Smart Waste Detection</span>
-              </motion.div>
-
-              <motion.div 
-                animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="glass"
-                style={{ 
-                  position: 'absolute',
-                  bottom: '15%',
-                  left: '-8%',
-                  padding: '16px',
-                  borderRadius: '16px',
-                  boxShadow: 'var(--shadow-soft)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '4px',
-                  border: '1px solid rgba(16, 185, 129, 0.1)'
-                }}
-              >
-                <span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--text-muted)' }}>Status</span>
-                <span style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--primary-dark)' }}>Verified Eco-Impact</span>
+                <div style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#10b981' }}></div>
+                <span style={{ fontWeight: 600, fontSize: '12px', color: 'var(--secondary)' }}>Smart Waste Detection</span>
               </motion.div>
             </div>
           </motion.div>

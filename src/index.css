@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap');
+
+:root {
+  /* Premium Startup Palette */
+  --primary: #10b981; /* Emerald 500 */
+  --primary-dark: #059669; /* Emerald 600 */
+  --primary-light: #ecfdf5; /* Emerald 50 */
+  --primary-glow: rgba(16, 185, 129, 0.15);
+  
+  --secondary: #0f172a; /* Slate 900 - Deep Blue/Black */
+  --secondary-light: #1e293b; /* Slate 800 */
+  
+  --background: #ffffff;
+  --surface: #f8fafc; /* Slate 50 - Very Light Blue/Gray */
+  --border: #f1f5f9; /* Slate 100 */
+  
+  --text: #334155; /* Slate 700 */
+  --text-dark: #0f172a; /* Slate 900 */
+  --text-muted: #64748b; /* Slate 500 */
+  
+  /* Layout */
+  --container-max: 1200px;
+  --section-padding: 120px;
+  
+  /* Transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: all 0.6s var(--ease-out);
+  --transition-fast: all 0.3s var(--ease-out);
+  
+  /* Shadows */
+  --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+  --shadow-glow: 0 20px 40px -10px rgba(16, 185, 129, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-dark);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: var(--section-padding) 0;
+}
+
+/* Typography Helpers */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Premium Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  border: none;
+  gap: 10px;
+}
+
+.btn-primary {
+  background-color: var(--secondary);
+  color: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.btn-primary:hover {
+  background-color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.btn-green {
+  background-color: var(--primary);
+  color: white;
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-green:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 25px 50px -10px rgba(16, 185, 129, 0.4);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--secondary);
+  border: 1.5px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--surface);
+  border-color: var(--text-muted);
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Floating Shapes (Soft & Blurred) */
+.glow-shape {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: var(--primary-glow);
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Card Styling */
+.card-premium {
+  background: white;
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  transition: var(--transition-slow);
+}
+
+.card-premium:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-premium);
+  border-color: var(--primary-light);
+}

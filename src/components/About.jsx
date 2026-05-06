@@ -6,7 +6,7 @@ const About = () => {
     {
       name: "Muhammad Umer Liaqat",
       role: "Full Stack Developer",
-      desc: "Specializes in building high-performance, responsive user interfaces with a focus on premium aesthetics.",
+      desc: "Passionate about building modern and user-friendly software solutions.",
       image: "/Muhammad Umer Liaqat.png",
       icon: <Smartphone size={32} />,
       pos: "center 10%"
@@ -14,7 +14,7 @@ const About = () => {
     {
       name: "Rana M Tayyab Atiq",
       role: "Full Stack Developer",
-      desc: "Expert in architecting robust server-side systems and managing complex data workflows for circular economies.",
+      desc: "Focused on developing efficient and reliable digital experiences.",
       image: "/Rana M Tayyab Atiq.png",
       icon: <Code2 size={32} />,
       pos: "center"
@@ -22,7 +22,7 @@ const About = () => {
     {
       name: "Warda Sohail",
       role: "Full Stack Developer",
-      desc: "Develops advanced neural vision models to accurately identify and classify recyclable materials in real-time.",
+      desc: "Dedicated to creating innovative and impactful technology solutions.",
       image: "/warda.png",
       icon: <Cpu size={48} />,
       pos: "center"

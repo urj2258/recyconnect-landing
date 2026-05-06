@@ -41,11 +41,7 @@ const Hero = () => {
             className="hero-content"
           >
 
-            <div className="badge">
-              <ShieldCheck size={14} style={{ marginRight: '8px' }} />
-              Built for Sustainable Future
-            </div>
-            
+
             <h1 style={{ marginBottom: '24px' }}>
               Smarter Recycling <br className="hidden-mobile" />
               for a <span className="gradient-text">Greener Planet.</span>

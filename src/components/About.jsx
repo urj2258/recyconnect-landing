@@ -5,7 +5,7 @@ const About = () => {
   const team = [
     {
       name: "Muhammad Umer Liaqat",
-      role: "Frontend Developer",
+      role: "Full Stack Developer",
       desc: "Specializes in building high-performance, responsive user interfaces with a focus on premium aesthetics.",
       image: "/Muhammad Umer Liaqat.png",
       icon: <Smartphone size={32} />,
@@ -13,17 +13,17 @@ const About = () => {
     },
     {
       name: "Rana M Tayyab Atiq",
-      role: "Backend Developer",
+      role: "Full Stack Developer",
       desc: "Expert in architecting robust server-side systems and managing complex data workflows for circular economies.",
       image: "/Rana M Tayyab Atiq.png",
       icon: <Code2 size={32} />,
       pos: "center"
     },
     {
-      name: "Team Member 3",
-      role: "AI Engineer",
+      name: "Warda Sohail",
+      role: "Full Stack Developer",
       desc: "Develops advanced neural vision models to accurately identify and classify recyclable materials in real-time.",
-      image: null,
+      image: "/warda.png",
       icon: <Cpu size={48} />,
       pos: "center"
     }
@@ -36,17 +36,17 @@ const About = () => {
   ];
 
   const portraitStyle = {
-    width: '100%',
-    height: '380px',
-    borderRadius: '24px',
+    width: '180px',
+    height: '180px',
+    borderRadius: '50%',
     overflow: 'hidden',
-    marginBottom: '24px',
-    boxShadow: 'var(--shadow-soft)',
+    margin: '0 auto 24px',
+    boxShadow: '0 12px 24px -8px rgba(16, 185, 129, 0.25)',
     backgroundColor: 'var(--surface)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    border: '1px solid var(--border)'
+    border: '4px solid white'
   };
 
   return (
@@ -68,6 +68,7 @@ const About = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
+          whileHover={{ y: -8, boxShadow: '0 20px 40px -5px rgba(16, 185, 129, 0.1)' }}
           viewport={{ once: true }}
           className="card-premium"
           style={{ 
@@ -76,7 +77,8 @@ const About = () => {
             textAlign: 'center', 
             border: '1px solid var(--primary-light)',
             background: 'white',
-            padding: '2.5rem'
+            padding: '2.5rem',
+            borderRadius: '24px'
           }}
         >
           <div className="badge" style={{ backgroundColor: 'var(--secondary)', color: 'white', marginBottom: '24px' }}>Project Supervisor</div>
@@ -97,19 +99,31 @@ const About = () => {
         {/* Team Members Grid */}
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
           gap: '32px',
-          marginBottom: '100px'
+          marginBottom: '100px',
+          alignItems: 'stretch'
         }}>
           {team.map((member, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -8, boxShadow: '0 20px 40px -5px rgba(16, 185, 129, 0.1)' }}
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
               className="card-premium"
-              style={{ textAlign: 'center', padding: '2.5rem' }}
+              style={{ 
+                textAlign: 'center', 
+                padding: '2.5rem 2rem',
+                display: 'flex',
+                flexDirection: 'column',
+                height: '100%',
+                backgroundColor: 'white',
+                borderRadius: '24px',
+                border: '1px solid var(--border)',
+                boxShadow: 'var(--shadow-soft)'
+              }}
             >
               <div style={portraitStyle}>
                 {member.image ? (
@@ -127,9 +141,9 @@ const About = () => {
                   <div style={{ color: 'var(--primary)', opacity: 0.2 }}>{member.icon}</div>
                 )}
               </div>
-              <h3 style={{ fontSize: '1.4rem', marginBottom: '8px' }}>{member.name}</h3>
+              <h3 style={{ fontSize: '1.4rem', marginBottom: '8px', fontWeight: '700', color: 'var(--text-dark)' }}>{member.name}</h3>
               <div style={{ fontWeight: 600, color: 'var(--primary)', fontSize: '0.95rem', marginBottom: '16px' }}>{member.role}</div>
-              <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>{member.desc}</p>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.6', flexGrow: 1 }}>{member.desc}</p>
             </motion.div>
           ))}
         </div>

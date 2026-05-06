@@ -71,10 +71,10 @@ const About = () => {
           whileHover={{ y: -8, boxShadow: '0 20px 40px -5px rgba(16, 185, 129, 0.1)' }}
           viewport={{ once: true }}
           className="card-premium"
-          style={{ 
-            maxWidth: '450px', 
-            margin: '0 auto 80px', 
-            textAlign: 'center', 
+          style={{
+            maxWidth: '450px',
+            margin: '0 auto 80px',
+            textAlign: 'center',
             border: '1px solid var(--primary-light)',
             background: 'white',
             padding: '2.5rem',
@@ -83,13 +83,13 @@ const About = () => {
         >
           <div className="badge" style={{ backgroundColor: 'var(--secondary)', color: 'white', marginBottom: '24px' }}>Project Supervisor</div>
           <div style={portraitStyle}>
-            <img 
-              src="/supervisor.png" 
-              alt="Supervisor" 
+            <img
+              src="/supervisor.png"
+              alt="Supervisor"
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
             />
           </div>
-          <h3 style={{ fontSize: '1.75rem', marginBottom: '8px' }}>Project Supervisor</h3>
+          <h3 style={{ fontSize: '1.75rem', marginBottom: '8px' }}>Jawad Khan</h3>
           <div style={{ fontWeight: 600, color: 'var(--primary)', fontSize: '1.1rem', marginBottom: '16px' }}>Lead Research & Oversight</div>
           <p style={{ fontSize: '1rem', color: 'var(--text-muted)' }}>
             Providing strategic guidance and academic oversight to ensure RecyConnect meets the highest standards of technical excellence.
@@ -149,10 +149,10 @@ const About = () => {
         </div>
 
         {/* Tech Stack & Mission */}
-        <div style={{ 
-          display: 'flex', 
-          flexDirection: 'column', 
-          alignItems: 'center', 
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
           gap: '48px',
           borderTop: '1px solid var(--border)',
           paddingTop: '80px'
@@ -161,13 +161,13 @@ const About = () => {
             <h4 style={{ marginBottom: '24px', fontSize: '1.2rem', fontWeight: 700 }}>Built with Industry-Leading Tech</h4>
             <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', justifyContent: 'center' }}>
               {techStack.map((tech, i) => (
-                <div key={i} style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  gap: '10px', 
-                  padding: '12px 24px', 
-                  backgroundColor: 'white', 
-                  borderRadius: '12px', 
+                <div key={i} style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  padding: '12px 24px',
+                  backgroundColor: 'white',
+                  borderRadius: '12px',
                   boxShadow: 'var(--shadow-soft)',
                   border: '1px solid var(--border)'
                 }}>
@@ -178,14 +178,14 @@ const About = () => {
             </div>
           </div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            style={{ 
-              textAlign: 'center', 
-              maxWidth: '600px', 
-              padding: '32px', 
-              borderRadius: '24px', 
+            style={{
+              textAlign: 'center',
+              maxWidth: '600px',
+              padding: '32px',
+              borderRadius: '24px',
               backgroundColor: 'var(--primary-light)',
               position: 'relative',
               overflow: 'hidden'
@@ -198,10 +198,10 @@ const About = () => {
               <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px', color: 'var(--primary)' }}>
                 <Sparkles size={24} />
               </div>
-              <p style={{ 
-                fontSize: '1.25rem', 
-                fontWeight: 600, 
-                color: 'var(--primary-dark)', 
+              <p style={{
+                fontSize: '1.25rem',
+                fontWeight: 600,
+                color: 'var(--primary-dark)',
                 fontStyle: 'italic',
                 lineHeight: '1.4'
               }}>

@@ -55,8 +55,9 @@ const CTASection = () => {
             </p>
 
             <motion.a 
-              href="/recyconnect.apk"
-              download="recyconnect.apk"
+              href="https://github.com/Tayyab2344/RecyConnect-frontend/releases/download/v1.0.0/app-release.apk"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="btn btn-green" 

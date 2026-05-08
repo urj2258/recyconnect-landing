@@ -71,8 +71,9 @@ const Hero = () => {
                 @media (min-width: 1024px) { .hero-btns { justify-content: flex-start !important; } }
               `}</style>
               <motion.a 
-                href="/recyconnect.apk"
-                download="recyconnect.apk"
+                href="https://github.com/Tayyab2344/RecyConnect-frontend/releases/download/v1.0.0/app-release.apk"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="btn btn-green" 

@@ -59,8 +59,9 @@ const Footer = () => {
             <h4 style={{ marginBottom: '1.75rem', fontSize: '1.2rem', fontWeight: 700 }}>Get the App</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <a 
-                href="/recyconnect.apk"
-                download="recyconnect.apk"
+                href="https://github.com/Tayyab2344/RecyConnect-frontend/releases/download/v1.0.0/app-release.apk"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn btn-primary" 
                 style={{ padding: '0.75rem 1.5rem', width: '100%', fontSize: '0.9rem' }}
               >

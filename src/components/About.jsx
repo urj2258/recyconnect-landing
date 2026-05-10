@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Users, Cpu, Code2, Smartphone, Leaf, Sparkles } from 'lucide-react';
+import { Users, Cpu, Code2, Smartphone, Leaf, Sparkles, Globe } from 'lucide-react';
 
 const About = () => {
   const team = [
@@ -148,67 +148,98 @@ const About = () => {
           ))}
         </div>
 
-        {/* Tech Stack & Mission */}
+        {/* Mission & Vision Section */}
         <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '48px',
           borderTop: '1px solid var(--border)',
-          paddingTop: '80px'
+          paddingTop: '100px',
+          marginTop: '60px'
         }}>
-          <div style={{ textAlign: 'center' }}>
-            <h4 style={{ marginBottom: '24px', fontSize: '1.2rem', fontWeight: 700 }}>Built with Industry-Leading Tech</h4>
-            <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', justifyContent: 'center' }}>
-              {techStack.map((tech, i) => (
-                <div key={i} style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  padding: '12px 24px',
-                  backgroundColor: 'white',
-                  borderRadius: '12px',
-                  boxShadow: 'var(--shadow-soft)',
-                  border: '1px solid var(--border)'
-                }}>
-                  <div style={{ color: tech.color }}>{tech.icon}</div>
-                  <span style={{ fontWeight: 600, fontSize: '0.95rem' }}>{tech.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: '1fr', 
+            gap: '80px', 
+            alignItems: 'start' 
+          }} className="about-grid">
+            <style>{`
+              @media (min-width: 1024px) { 
+                .about-grid { grid-template-columns: 1fr 1fr !important; gap: 120px !important; } 
+              }
+            `}</style>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            style={{
-              textAlign: 'center',
-              maxWidth: '600px',
-              padding: '32px',
-              borderRadius: '24px',
-              backgroundColor: 'var(--primary-light)',
-              position: 'relative',
-              overflow: 'hidden'
-            }}
-          >
-            <div style={{ position: 'absolute', top: '-10px', right: '-10px', color: 'rgba(16, 185, 129, 0.2)' }}>
-              <Leaf size={100} />
-            </div>
-            <div style={{ position: 'relative', zIndex: 1 }}>
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px', color: 'var(--primary)' }}>
-                <Sparkles size={24} />
-              </div>
-              <p style={{
-                fontSize: '1.25rem',
-                fontWeight: 600,
-                color: 'var(--primary-dark)',
-                fontStyle: 'italic',
-                lineHeight: '1.4'
-              }}>
-                "Our mission is to build a world where waste is seen as a resource, not a burden on the planet."
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="badge" style={{ backgroundColor: 'rgba(16, 185, 129, 0.1)', color: 'var(--primary-dark)' }}>Our Purpose</div>
+              <h3 style={{ marginBottom: '24px', fontSize: '2rem' }}>Building a <span className="gradient-text">Smarter Future</span> for our Planet.</h3>
+              <p style={{ marginBottom: '24px', fontSize: '1.05rem', lineHeight: '1.7' }}>
+                RecyConnect was born from a simple yet profound observation: our current waste management systems are outdated and disconnected. We saw billions of dollars in valuable materials ending up in landfills simply because people lacked the tools to identify and move them efficiently.
               </p>
-            </div>
-          </motion.div>
+              <p style={{ fontSize: '1.05rem', lineHeight: '1.7' }}>
+                Our vision is to build a world where technology and community action work in perfect harmony. By leveraging AI and real-time connectivity, we are creating a digital ecosystem that turns every citizen into an environmental hero and every piece of waste into a resource.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}
+            >
+              <div>
+                <div style={{ display: 'flex', gap: '16px', marginBottom: '16px' }}>
+                  <div style={{ color: 'var(--primary)' }}><Leaf size={24} /></div>
+                  <h4 style={{ fontSize: '1.25rem', fontWeight: 700 }}>The Mission</h4>
+                </div>
+                <p style={{ margin: 0, fontSize: '1rem' }}>
+                  To democratize recycling by providing accessible, AI-powered tools that simplify waste classification and connect the entire recycling value chain—from households to industrial recyclers.
+                </p>
+              </div>
+
+              <div>
+                <div style={{ display: 'flex', gap: '16px', marginBottom: '16px' }}>
+                  <div style={{ color: 'var(--primary)' }}><Sparkles size={24} /></div>
+                  <h4 style={{ fontSize: '1.25rem', fontWeight: 700 }}>The Long-Term Goal</h4>
+                </div>
+                <p style={{ margin: 0, fontSize: '1rem' }}>
+                  We aim to reduce landfill contributions by 40% in our target regions within the next five years, fostering a global culture of circularity where "waste" is a term of the past.
+                </p>
+              </div>
+
+              <div style={{
+                padding: '32px',
+                backgroundColor: 'var(--secondary)',
+                borderRadius: '24px',
+                color: 'white',
+                position: 'relative',
+                overflow: 'hidden'
+              }}>
+                <div style={{ position: 'absolute', top: '-10px', right: '-10px', opacity: 0.1, color: 'white' }}>
+                  <Globe size={100} />
+                </div>
+                <div style={{ position: 'relative', zIndex: 1 }}>
+                  <h5 style={{ color: 'var(--primary)', marginBottom: '8px', fontWeight: 700 }}>Global Innovation</h5>
+                  <p style={{ margin: 0, fontSize: '0.95rem', opacity: 0.9 }}>
+                    Designed for scalability, RecyConnect is built to support universities, government organizations, and NGOs in achieving their sustainability targets through data-driven waste management.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Tech Stack */}
+        <div style={{ textAlign: 'center', marginTop: '100px', opacity: 0.6 }}>
+          <h4 style={{ marginBottom: '32px', fontSize: '1.1rem', fontWeight: 600 }}>Built with Industry-Leading Technology</h4>
+          <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap', justifyContent: 'center' }}>
+            {techStack.map((tech, i) => (
+              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div style={{ color: tech.color }}>{tech.icon}</div>
+                <span style={{ fontWeight: 600 }}>{tech.name}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -49,7 +49,7 @@ const Footer = () => {
             <h4 style={{ marginBottom: '1.75rem', fontSize: '1.2rem', fontWeight: 700 }}>Company</h4>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', color: 'var(--text-muted)', listStyle: 'none' }}>
               <li><a href="#" style={{ fontSize: '1rem' }}>About Us</a></li>
-              <li><a href="#" style={{ fontSize: '1rem' }}>Sustainability Report</a></li>
+              <li><a href="#design-system" style={{ fontSize: '1rem' }}>Brand Assets</a></li>
               <li><a href="#" style={{ fontSize: '1rem' }}>Privacy Policy</a></li>
               <li><a href="#" style={{ fontSize: '1rem' }}>Terms of Service</a></li>
             </ul>

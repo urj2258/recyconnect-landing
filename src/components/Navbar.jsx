@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const Navbar = () => {
+const Navbar = ({ isDesignSystem }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -12,13 +12,15 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const links = [
-    { name: 'Features', href: '#features' },
-    { name: 'How it Works', href: '#how-it-works' },
-    { name: 'Impact', href: '#target-users' },
-    { name: 'About', href: '#about' },
-    { name: 'Download', href: '#download' },
-  ];
+  const links = isDesignSystem
+    ? [{ name: 'Back to Home', href: '#' }]
+    : [
+        { name: 'Features', href: '#features' },
+        { name: 'How it Works', href: '#how-it-works' },
+        { name: 'Impact', href: '#target-users' },
+        { name: 'About', href: '#about' },
+        { name: 'Brand Assets', href: '#design-system' },
+      ];
 
   return (
     <nav style={{

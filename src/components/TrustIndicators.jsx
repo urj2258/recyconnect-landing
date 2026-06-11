@@ -3,57 +3,40 @@ import { Shield, Award, Users, CheckCircle } from 'lucide-react';
 
 const TrustIndicators = () => {
   const indicators = [
-    { 
-      icon: <Shield size={24} />, 
-      title: "Data Security", 
-      desc: "Enterprise-grade encryption for all user data."
-    },
-    { 
-      icon: <Award size={24} />, 
-      title: "Certified Impact", 
-      desc: "Eco-impact reports verified by sustainability standards."
-    },
-    { 
-      icon: <Users size={24} />, 
-      title: "Community Driven", 
-      desc: "Built by environmentalists for environmentalists."
-    },
-    { 
-      icon: <CheckCircle size={24} />, 
-      title: "Simple & Honest", 
-      desc: "Transparent reward systems with no hidden fees."
-    }
+    { icon: <Shield size={16} />, label: "Secure Data" },
+    { icon: <Award size={16} />, label: "Certified Impact" },
+    { icon: <Users size={16} />, label: "Community Driven" },
+    { icon: <CheckCircle size={16} />, label: "Verified Solutions" }
   ];
 
   return (
-    <div style={{ backgroundColor: 'var(--white)', padding: '40px 0' }}>
+    <div style={{ backgroundColor: 'var(--white)', padding: '24px 0', borderBottom: '1px solid var(--border)' }}>
       <div className="container">
         <div style={{ 
           display: 'flex', 
           justifyContent: 'center', 
-          gap: '60px', 
+          gap: 'clamp(20px, 5vw, 60px)', 
           flexWrap: 'wrap',
-          opacity: 0.8
+          alignItems: 'center'
         }}>
           {indicators.map((item, index) => (
             <motion.div 
               key={index}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
               style={{ 
                 display: 'flex', 
                 alignItems: 'center', 
-                gap: '12px',
-                color: 'var(--text-muted)'
+                gap: '8px',
+                color: 'var(--text-muted)',
+                fontSize: '0.85rem',
+                fontWeight: 600
               }}
             >
-              <div style={{ color: 'var(--primary)' }}>{item.icon}</div>
-              <div>
-                <div style={{ fontWeight: 700, color: 'var(--secondary)', fontSize: '0.9rem' }}>{item.title}</div>
-                <div style={{ fontSize: '0.8rem' }}>{item.desc}</div>
-              </div>
+              <div style={{ color: 'var(--primary)', display: 'flex' }}>{item.icon}</div>
+              <span style={{ whiteSpace: 'nowrap' }}>{item.label}</span>
             </motion.div>
           ))}
         </div>

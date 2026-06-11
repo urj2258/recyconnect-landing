@@ -58,7 +58,7 @@ const Hero = () => {
               <style>{`
                 @media (min-width: 1024px) { .hero-p { margin-left: 0 !important; } }
               `}</style>
-              RecyConnect uses advanced AI technology to simplify waste management and promote sustainable living. Join the movement toward a circular economy today.
+              RecyConnect helps you turn your household waste into environmental impact. Scan items with AI, find local collectors, and join a community dedicated to a waste-free future.
             </p>
             
             <div style={{ 

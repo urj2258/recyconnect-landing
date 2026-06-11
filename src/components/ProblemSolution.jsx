@@ -1,95 +1,132 @@
 import { motion } from 'framer-motion';
-import { AlertCircle, ScanSearch, Store, Truck } from 'lucide-react';
+import { Leaf } from 'lucide-react';
 
 const ProblemSolution = () => {
   return (
-    <section className="section" style={{ backgroundColor: 'var(--white)' }}>
+    <section className="section" id="vision" style={{ position: 'relative', overflow: 'hidden', backgroundColor: 'var(--white)' }}>
+      {/* Subtle Background Accent */}
+      <div 
+        className="glow-shape" 
+        style={{ 
+          top: '20%', 
+          left: '-10%', 
+          width: '500px', 
+          height: '500px', 
+          background: 'radial-gradient(circle, rgba(16, 185, 129, 0.03) 0%, transparent 70%)',
+          opacity: 0.8
+        }} 
+      />
+
       <div className="container">
         <div style={{ 
           display: 'grid', 
           gridTemplateColumns: '1fr', 
-          gap: '60px', 
-          alignItems: 'center' 
-        }} className="ps-grid">
+          gap: '40px', 
+          alignItems: 'center',
+          padding: '40px 0'
+        }} className="problem-redesign-grid">
           <style>{`
-            @media (min-width: 768px) { .ps-grid { grid-template-columns: 1fr 1fr !important; gap: 40px !important; } }
-            @media (min-width: 1024px) { .ps-grid { gap: 100px !important; } }
+            @media (min-width: 1024px) { 
+              .problem-redesign-grid { 
+                grid-template-columns: 1fr 1fr !important; 
+                gap: 120px !important; 
+                padding: 80px 0 !important;
+              } 
+            }
           `}</style>
           
-          {/* Problem Side */}
+          {/* Content Side */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true }}
           >
-            <div className="badge" style={{ backgroundColor: '#fee2e2', color: '#ef4444', border: '1px solid rgba(239, 68, 68, 0.1)' }}>The Problem</div>
-            <h2 style={{ marginBottom: '32px' }}>
-              Traditional recycling is <br className="hidden-mobile" />
-              <span style={{ color: '#ef4444' }}>broken & confusing.</span>
+            <div className="badge" style={{ marginBottom: '24px' }}>
+              <Leaf size={14} style={{ marginRight: '8px' }} />
+              Why RecyConnect Exists
+            </div>
+            
+            <h2 style={{ 
+              marginBottom: '32px', 
+              fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', 
+              lineHeight: '1.1',
+              fontWeight: 800,
+              letterSpacing: '-0.02em',
+              color: 'var(--secondary)'
+            }}>
+              The problem is not waste. <br />
+              It’s the <span className="gradient-text">missing connection.</span>
             </h2>
             
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              {[
-                { icon: <AlertCircle size={20} color="#ef4444" />, title: "Waste is everywhere", text: "Lack of easy tracking leads to unmanaged litter in our communities." },
-                { icon: <AlertCircle size={20} color="#ef4444" />, title: "No easy way to recycle", text: "Finding centers and understanding categories is a manual headache." },
-                { icon: <AlertCircle size={20} color="#ef4444" />, title: "Unknown item value", text: "Millions of dollars in valuable materials are discarded daily." }
-              ].map((item, i) => (
-                <div key={i} style={{ display: 'flex', gap: '16px' }}>
-                  <div style={{ marginTop: '4px' }}>{item.icon}</div>
-                  <div>
-                    <h4 style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '4px', color: 'var(--secondary)' }}>{item.title}</h4>
-                    <p style={{ fontSize: '0.95rem' }}>{item.text}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <p style={{ 
+              fontSize: '1.25rem', 
+              lineHeight: '1.6', 
+              color: 'var(--text-muted)',
+              maxWidth: '520px',
+              margin: 0
+            }}>
+              Every day, valuable resources are lost to landfills simply because people, collectors, and recyclers lack a unified way to connect. We’re building the digital bridge to turn discarded items back into valued resources.
+            </p>
           </motion.div>
 
-          {/* Solution Side */}
+          {/* Illustration Side */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             viewport={{ once: true }}
-            className="card-premium"
-            style={{ background: 'var(--surface)', borderColor: 'var(--primary-light)' }}
+            style={{ 
+              display: 'flex', 
+              justifyContent: 'center',
+              position: 'relative'
+            }}
           >
-            <div className="badge">The Solution</div>
-            <h2 style={{ marginBottom: '32px' }}>
-              AI-driven <br className="hidden-mobile" />
-              <span className="gradient-text">transparency.</span>
-            </h2>
-            
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              {[
-                { icon: <ScanSearch size={22} color="var(--primary)" />, title: "AI Classification", text: "Instantly identify materials and their market value with one scan." },
-                { icon: <Store size={22} color="var(--primary)" />, title: "Reward Marketplace", text: "Sell your recyclables directly to buyers or redeem points for cash." },
-                { icon: <Truck size={22} color="var(--primary)" />, title: "Smart Pickup", text: "Request a collector to your door with real-time GPS tracking." }
-              ].map((item, i) => (
-                <div key={i} style={{ display: 'flex', gap: '16px' }}>
-                  <div style={{ 
-                    width: '44px', 
-                    height: '44px', 
-                    backgroundColor: 'white', 
-                    borderRadius: '12px', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'center',
-                    boxShadow: 'var(--shadow-soft)',
-                    flexShrink: 0
-                  }}>
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h4 style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '4px', color: 'var(--secondary)' }}>{item.title}</h4>
-                    <p style={{ fontSize: '0.95rem' }}>{item.text}</p>
-                  </div>
-                </div>
-              ))}
+            <div style={{
+              width: '100%',
+              maxWidth: '560px',
+              borderRadius: '32px',
+              overflow: 'hidden',
+              backgroundColor: 'var(--bg-light)',
+              border: '1px solid var(--border)',
+              boxShadow: 'var(--shadow-premium)'
+            }}>
+              <img 
+                src="/eco_tech_connection.png" 
+                alt="Eco-Tech Connection" 
+                style={{ 
+                  width: '100%', 
+                  height: 'auto', 
+                  display: 'block',
+                  mixBlendMode: 'multiply'
+                }} 
+              />
             </div>
-          </motion.div>
 
+            {/* Subtle Floating Element */}
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              style={{
+                position: 'absolute',
+                bottom: '30px',
+                right: '30px',
+                padding: '12px 20px',
+                backgroundColor: 'white',
+                borderRadius: '16px',
+                boxShadow: 'var(--shadow-soft)',
+                border: '1px solid var(--border)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                zIndex: 2
+              }}
+              className="hidden-mobile"
+            >
+              <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--primary)' }}></div>
+              <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--secondary)' }}>Smarter Bridge</span>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

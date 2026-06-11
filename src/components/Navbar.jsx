@@ -45,7 +45,7 @@ const Navbar = ({ isDesignSystem }) => {
       {/* Logo */}
       <a href="#" className="logo-link" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
         <img 
-          src="/app_icon.png" 
+          src="/app_ico.png" 
           alt="RecyConnect Logo" 
           style={{ 
             width: '40px', 

@@ -136,7 +136,7 @@ const AssetShowcase = () => {
               border: '1px solid rgba(0,0,0,0.02)',
             }}>
               <img 
-                src="/app_icon.png" 
+                src="/app_ico.png" 
                 alt="RecyConnect App Icon" 
                 style={{
                   width: '120px',
@@ -151,7 +151,7 @@ const AssetShowcase = () => {
               The primary mobile application icon. High-tech circular recycling loop with embedded leaf and AI network nodes.
             </p>
           </div>
-          <a href="/app_icon.png" download className="btn" style={{
+          <a href="/app_ico.png" download className="btn" style={{
             background: '#4CAF50',
             color: '#ffffff',
             borderRadius: '12px',

@@ -1,4 +1,4 @@
-import { Leaf, Share2, Globe, Mail, Phone, MapPin } from 'lucide-react';
+import { Share2, Globe, Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -7,9 +7,17 @@ const Footer = () => {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '4rem', marginBottom: '5rem' }}>
           <div style={{ gridColumn: 'span 2' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
-              <div style={{ width: '44px', height: '44px', background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
-                <Leaf size={24} />
-              </div>
+              <img 
+                src="/app_ico.png" 
+                alt="RecyConnect Logo" 
+                style={{ 
+                  width: '44px', 
+                  height: '44px', 
+                  borderRadius: '12px', 
+                  objectFit: 'contain',
+                  boxShadow: '0 8px 16px -4px rgba(16, 185, 129, 0.3)'
+                }} 
+              />
               <span style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--secondary)', letterSpacing: '-0.03em' }}>RecyConnect</span>
             </div>
             <p style={{ color: 'var(--text-muted)', maxWidth: '340px', marginBottom: '2.5rem', fontSize: '1.05rem', lineHeight: '1.7' }}>

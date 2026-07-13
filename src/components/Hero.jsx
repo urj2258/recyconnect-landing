@@ -1,7 +1,18 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Download, ArrowRight, ShieldCheck, Zap, Globe } from 'lucide-react';
+import { Download, ArrowRight, ShieldCheck, Zap, Globe, Shield, Copy, Check, HelpCircle } from 'lucide-react';
 
 const Hero = () => {
+  const [copiedHash, setCopiedHash] = useState(false);
+  const [showInstructions, setShowInstructions] = useState(false);
+
+  const handleCopyHash = (e) => {
+    e.preventDefault();
+    navigator.clipboard.writeText("be1ab0b90399643e0420a88fa863c497ada0d3c64edc5d34ff676e8da5cdf24c");
+    setCopiedHash(true);
+    setTimeout(() => setCopiedHash(false), 2000);
+  };
+
   return (
     <section style={{ 
       padding: 'clamp(120px, 15vw, 180px) 0 clamp(60px, 10vw, 100px)', 
@@ -91,6 +102,130 @@ const Hero = () => {
                 Learn More
                 <ArrowRight size={20} />
               </motion.a>
+            </div>
+
+            {/* Release Checksum verification */}
+            <div style={{
+              marginTop: '20px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '8px',
+              alignItems: 'center',
+            }} className="hero-checksum">
+              <style>{`
+                @media (min-width: 1024px) { .hero-checksum { align-items: flex-start !important; } }
+              `}</style>
+              
+              <div style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '10px', 
+                fontSize: '0.85rem', 
+                color: 'var(--text-muted)',
+                backgroundColor: 'var(--white)',
+                padding: '8px 16px',
+                borderRadius: '12px',
+                border: '1px solid var(--border)',
+                boxShadow: 'var(--shadow-soft)',
+                transition: 'all 0.3s ease'
+              }}>
+                <Shield size={15} color="var(--primary)" />
+                <span style={{ fontWeight: 600 }}>v1.0.0 SHA-256:</span>
+                <code style={{ 
+                  fontFamily: 'monospace', 
+                  backgroundColor: 'var(--bg-light)', 
+                  padding: '4px 8px', 
+                  borderRadius: '6px',
+                  fontSize: '0.8rem',
+                  color: 'var(--text-dark)',
+                  maxWidth: '180px',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap'
+                }} title="be1ab0b90399643e0420a88fa863c497ada0d3c64edc5d34ff676e8da5cdf24c">
+                  be1ab0b9...c5d34ff6
+                </code>
+                <button 
+                  onClick={handleCopyHash}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '4px',
+                    borderRadius: '6px',
+                    color: copiedHash ? 'var(--primary)' : 'var(--text-muted)',
+                    transition: 'all 0.2s',
+                    backgroundColor: copiedHash ? 'var(--primary-light)' : 'transparent'
+                  }}
+                  title="Copy full SHA-256 hash"
+                >
+                  {copiedHash ? <Check size={14} /> : <Copy size={14} />}
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setShowInstructions(!showInstructions);
+                  }}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '4px',
+                    borderRadius: '6px',
+                    color: 'var(--primary)',
+                    transition: 'all 0.2s',
+                    textDecoration: 'underline',
+                    fontSize: '0.8rem',
+                    fontWeight: 600
+                  }}
+                  title="How to verify download"
+                >
+                  <HelpCircle size={14} style={{ marginRight: '4px' }} />
+                  Verify
+                </button>
+              </div>
+
+              {showInstructions && (
+                <motion.div 
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  style={{
+                    backgroundColor: 'var(--bg-light)',
+                    border: '1px solid var(--border)',
+                    borderRadius: '12px',
+                    padding: '12px 16px',
+                    maxWidth: '450px',
+                    textAlign: 'left',
+                    fontSize: '0.8rem',
+                    boxShadow: 'var(--shadow-soft)',
+                    color: 'var(--text-muted)',
+                    lineHeight: '1.4'
+                  }}
+                >
+                  <p style={{ fontWeight: 600, color: 'var(--text-dark)', marginBottom: '6px', fontSize: '0.85rem' }}>
+                    Verify APK Integrity
+                  </p>
+                  <p style={{ marginBottom: '8px' }}>
+                    Run the appropriate command in your terminal to match the SHA-256 checksum:
+                  </p>
+                  <div style={{ marginBottom: '6px' }}>
+                    <span style={{ fontWeight: 600, color: 'var(--text-dark)' }}>Windows PowerShell:</span>
+                    <pre style={{ backgroundColor: 'var(--surface)', padding: '6px', borderRadius: '6px', overflowX: 'auto', marginTop: '4px', fontFamily: 'monospace', fontSize: '0.75rem', color: 'var(--text-dark)' }}>
+                      Get-FileHash .\app-release.apk -Algorithm SHA256
+                    </pre>
+                  </div>
+                  <div>
+                    <span style={{ fontWeight: 600, color: 'var(--text-dark)' }}>macOS / Linux:</span>
+                    <pre style={{ backgroundColor: 'var(--surface)', padding: '6px', borderRadius: '6px', overflowX: 'auto', marginTop: '4px', fontFamily: 'monospace', fontSize: '0.75rem', color: 'var(--text-dark)' }}>
+                      shasum -a 256 app-release.apk
+                    </pre>
+                  </div>
+                </motion.div>
+              )}
             </div>
 
             {/* Trust highlights */}

@@ -1,7 +1,18 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Download, ShieldCheck, Lock, CheckCircle2, Sparkles } from 'lucide-react';
+import { Download, ShieldCheck, Lock, CheckCircle2, Sparkles, Copy, Check, HelpCircle } from 'lucide-react';
 
 const CTASection = () => {
+  const [copiedHash, setCopiedHash] = useState(false);
+  const [showInstructions, setShowInstructions] = useState(false);
+
+  const handleCopyHash = (e) => {
+    e.preventDefault();
+    navigator.clipboard.writeText("be1ab0b90399643e0420a88fa863c497ada0d3c64edc5d34ff676e8da5cdf24c");
+    setCopiedHash(true);
+    setTimeout(() => setCopiedHash(false), 2000);
+  };
+
   return (
     <section className="section" id="download" style={{ backgroundColor: 'var(--white)' }}>
       <div className="container">
@@ -63,12 +74,132 @@ const CTASection = () => {
               className="btn btn-green" 
               style={{ 
                 padding: '1.125rem 3rem',
-                marginBottom: 'clamp(3rem, 8vw, 4rem)'
+                marginBottom: '1.5rem'
               }}
             >
               <Download size={22} />
               Download APK Now
             </motion.a>
+
+            {/* Release Checksum verification */}
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '8px',
+              marginBottom: 'clamp(3rem, 8vw, 4rem)'
+            }}>
+              <div style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '10px', 
+                fontSize: '0.85rem', 
+                color: 'rgba(255, 255, 255, 0.7)',
+                backgroundColor: 'rgba(255, 255, 255, 0.03)',
+                padding: '8px 16px',
+                borderRadius: '12px',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(10px)',
+                transition: 'all 0.3s ease'
+              }}>
+                <ShieldCheck size={15} color="#10b981" />
+                <span style={{ fontWeight: 600 }}>v1.0.0 SHA-256:</span>
+                <code style={{ 
+                  fontFamily: 'monospace', 
+                  backgroundColor: 'rgba(0, 0, 0, 0.3)', 
+                  color: '#e2e8f0',
+                  padding: '4px 8px', 
+                  borderRadius: '6px',
+                  fontSize: '0.8rem',
+                  maxWidth: '180px',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap'
+                }} title="be1ab0b90399643e0420a88fa863c497ada0d3c64edc5d34ff676e8da5cdf24c">
+                  be1ab0b9...c5d34ff6
+                </code>
+                <button 
+                  onClick={handleCopyHash}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '4px',
+                    borderRadius: '6px',
+                    color: copiedHash ? '#10b981' : 'rgba(255, 255, 255, 0.6)',
+                    transition: 'all 0.2s',
+                    backgroundColor: copiedHash ? 'rgba(16, 185, 129, 0.15)' : 'transparent'
+                  }}
+                  title="Copy full SHA-256 hash"
+                >
+                  {copiedHash ? <Check size={14} /> : <Copy size={14} />}
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setShowInstructions(!showInstructions);
+                  }}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '4px',
+                    borderRadius: '6px',
+                    color: '#34d399',
+                    transition: 'all 0.2s',
+                    textDecoration: 'underline',
+                    fontSize: '0.8rem',
+                    fontWeight: 600
+                  }}
+                  title="How to verify download"
+                >
+                  <HelpCircle size={14} style={{ marginRight: '4px' }} />
+                  Verify
+                </button>
+              </div>
+
+              {showInstructions && (
+                <motion.div 
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  style={{
+                    backgroundColor: 'rgba(15, 23, 42, 0.6)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '12px',
+                    padding: '12px 16px',
+                    maxWidth: '450px',
+                    textAlign: 'left',
+                    fontSize: '0.8rem',
+                    backdropFilter: 'blur(10px)',
+                    color: 'rgba(255, 255, 255, 0.7)',
+                    lineHeight: '1.4'
+                  }}
+                >
+                  <p style={{ fontWeight: 600, color: '#ffffff', marginBottom: '6px', fontSize: '0.85rem' }}>
+                    Verify APK Integrity
+                  </p>
+                  <p style={{ marginBottom: '8px' }}>
+                    Run the appropriate command in your terminal to match the SHA-256 checksum:
+                  </p>
+                  <div style={{ marginBottom: '6px' }}>
+                    <span style={{ fontWeight: 600, color: '#ffffff' }}>Windows PowerShell:</span>
+                    <pre style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)', padding: '6px', borderRadius: '6px', overflowX: 'auto', marginTop: '4px', fontFamily: 'monospace', fontSize: '0.75rem', color: '#e2e8f0', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
+                      Get-FileHash .\app-release.apk -Algorithm SHA256
+                    </pre>
+                  </div>
+                  <div>
+                    <span style={{ fontWeight: 600, color: '#ffffff' }}>macOS / Linux:</span>
+                    <pre style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)', padding: '6px', borderRadius: '6px', overflowX: 'auto', marginTop: '4px', fontFamily: 'monospace', fontSize: '0.75rem', color: '#e2e8f0', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
+                      shasum -a 256 app-release.apk
+                    </pre>
+                  </div>
+                </motion.div>
+              )}
+            </div>
 
             {/* Trust Badges */}
             <div style={{ 
